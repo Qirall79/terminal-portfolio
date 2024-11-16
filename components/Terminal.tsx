@@ -19,12 +19,14 @@ export const Terminal = () => {
   };
 
   const handleKeys = (e) => {
-    if (e.metaKey && e.key == 'k')
-		setContent([]);
+    if (e.metaKey && e.key == 'k') setContent([]);
   };
 
   return (
-    <div onKeyDown={handleKeys} className='w-full flex-grow p-4 flex flex-col'>
+    <div
+      onKeyDown={handleKeys}
+      className='w-full max-w-screen flex-grow p-4 flex flex-col'
+    >
       {content.map((c, i) => {
         if (c.startsWith('$>')) {
           let [start, end] = c.split('$>');
@@ -32,7 +34,7 @@ export const Terminal = () => {
           start = dir == '/' ? '' : dir;
 
           return (
-            <p key={i}>
+            <p className='break-words break-all' key={i}>
               <span className='font-bold text-[#9B87F5]'>{start + ' $>'}</span>
               <span>{end}</span>
             </p>
@@ -43,7 +45,7 @@ export const Terminal = () => {
           <p
             className={`${
               c.startsWith('$>') ? 'font-bold text-[#9B87F5]' : ''
-            } `}
+            } break-words break-all`}
             key={i}
           >
             {c}
