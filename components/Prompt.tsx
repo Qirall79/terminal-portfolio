@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Prompt = ({ handleCommand }: { handleCommand: any }) => {
   const [value, setValue] = useState('');
+  const [visible, setVisible] = useState(false);
 
   const handlePress = (e: any) => {
     if (e.key === 'Enter') {
@@ -17,10 +18,25 @@ export const Prompt = ({ handleCommand }: { handleCommand: any }) => {
     }
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 900);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className='w-full flex-grow flex relative'>
-      <span className='absolute top-0 left-0 font-bold text-[#9B87F5]'>{'$>'}</span>
+    <div
+      className={`w-full flex-grow flex relative transition-all ${
+        visible ? '' : 'hidden'
+      }`}
+    >
+      <span className='absolute top-0 left-0 font-bold text-[#9B87F5]'>
+        {'$>'}
+      </span>
       <textarea
+        autoFocus
         value={value}
         onChange={(e) => setValue(e.target.value == '\n' ? '' : e.target.value)}
         onKeyDown={handlePress}
