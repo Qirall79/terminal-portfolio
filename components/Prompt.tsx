@@ -38,7 +38,7 @@ export const Prompt = ({ handleCommand, dir }: { handleCommand: any, dir: string
       {
         const val = searchedValues.join(" ") + " " + matches[0];
         setValue(val);
-        setPosition([0, (dir ? (dir.length + 1) : 0) * 9.3 + val.length * 9.3 + 29]);
+        setPosition([0, (dir ? (dir.length + 1) : 0) * 9.3 + val.length * 10 + 29]);
       }
     }
   };
