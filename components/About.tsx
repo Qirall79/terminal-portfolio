@@ -53,7 +53,7 @@ export const About = () => {
       <br />
 
       <p className="font-semibold ">Skills: </p>
-      <ul className="flex flex-wrap space-x-4 translate-x-4">
+      <ul className="flex flex-wrap gap-x-4 translate-x-4">
         {skills.map((s, j) => {
           return (
             <li
