@@ -109,6 +109,7 @@ const skills = [
 export const Terminal = () => {
   const [content, setContent] = useState([]);
   const [dir, setDir] = useState("/");
+  const [directories, setDirectories] = useState(["/"]);
   const [cmd, setCmd] = useState("");
   const [cleared, setCleared] = useState(false);
   const [animated, setAnimated] = useState(false);
@@ -139,11 +140,24 @@ export const Terminal = () => {
       const newContent = [(dir == "/" ? "" : dir) + "$> " + command];
 
       if (singleCommand === "cd") {
-        if (fileSystem[dir].dirs.includes(args[1])) {
-          setDir(args[1]);
+        if (fileSystem[dir].dirs.includes(args[1]) || args[1] === "..") {
+          {
+            if (args[1] !== "..")
+            {
+              setDir(args[1]);
+              setDirectories([...directories, args[1]]);
+            }
+            else {
+              const dirs = [...directories];
+              dirs.pop();
+              setDir(dirs[dirs.length - 1]);
+              setDirectories([...dirs]);
+            }
+          }
         } else {
-          if (!args[1] || args[1] === "..") {
+          if (!args[1]) {
             setDir("/");
+            setDirectories(["/"])
           } else newContent.push("Directory not found!");
         }
       }
