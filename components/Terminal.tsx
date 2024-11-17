@@ -20,23 +20,32 @@ const folders = ["projects", "about"]
 export const Terminal = () => {
   const [content, setContent] = useState([]);
   const [dir, setDir] = useState('/');
+  const [cleared, setCleared] = useState(false);
+  const [animated, setAnimated] = useState(false);
 
   const addContent = (c: string[]) => {
     setContent([...content, ...c]);
   };
 
   const handleCommand = (command: string) => {
-    if (command == 'clear') setContent([]);
+    if (command == 'clear') {
+      setContent([]);
+      setCleared(true);
+    }
     else addContent(['$> ' + command, 'This is some result']);
   };
 
   const handleKeys = (e) => {
-    if (e.metaKey && e.key == 'k') setContent([]);
+    if (e.metaKey && e.key == 'k') {
+      setContent([]);
+      setCleared(true);
+    }
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setContent([...helpContent]);
+      setAnimated(true)
     }, 700);
 
     return () => clearTimeout(timer);
@@ -47,16 +56,16 @@ export const Terminal = () => {
       onKeyDown={handleKeys}
       className='w-full max-w-screen flex-grow p-4 flex flex-col'
     >
-      <div>
+      {!cleared && <div>
         <span className='font-bold text-[#9B87F5] pr-3'>{'$>'}</span>
         <TypeAnimation
-          className='font-bold'
           sequence={['help']}
           wrapper='span'
           cursor={false}
           speed={1}
         />
-      </div>
+        {!animated && <span id="tmp-caret" className={`w-2 h-6 bg-neutral-50 inline-block absolute`} />}
+      </div>}
 
       {content.map((c, i) => {
         if (c.startsWith('$>')) {
