@@ -327,10 +327,9 @@ export const Terminal = () => {
         if (c === "|||") {
           // this is about.txt
           return (
-            <div key={i}>
+            <div className="max-w-[800px] text-left" key={i}>
               <br />
-              <p className="font-semibold text-blue-300">Introduction: </p>
-              <p className="translate-x-4">
+              <p>
                 I&apos;m Walid Belfatmi, a self-taught full stack developer. The
                 combination of creativity, problem solving, and permanent
                 learning is what drives my passion for programming in general,
