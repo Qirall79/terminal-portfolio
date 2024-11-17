@@ -31,7 +31,7 @@ export const Prompt = ({ handleCommand, dir }: { handleCommand: any, dir: string
       const searchedValue = searchedValues.pop();
   
       const completions = [...fileSystem[tmpDir].dirs, ...fileSystem[tmpDir].files];
-      
+
       const matches = completions.filter(c => c.startsWith(searchedValue));
 
       if (matches.length == 1)

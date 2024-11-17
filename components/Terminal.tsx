@@ -7,19 +7,22 @@ import { Prompt } from "./Prompt";
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import Link from "next/link";
-
-const helpContent = [
-  "available commands:",
-  "help: this",
-  "ls: list information folders",
-  "cd: go to information folder",
-  "cat: display information",
-  "pwd: print current folder",
-];
+import { About } from "./About";
+import { Header } from "./Header";
+import { Help } from "./Help";
 
 const commands = ["ls", "cd", "cat", "clear", "help"];
 
-const projects = ["webserv", "pawtograph", "walidbook", "note-it"];
+const projects = [
+  "webserv",
+  "pawtograph",
+  "walidbook",
+  "note-it",
+  "minishell",
+  "philosophers",
+  "cub3d",
+  "fract-ol",
+];
 
 export const fileSystem = {
   "/": {
@@ -27,17 +30,26 @@ export const fileSystem = {
     files: ["about.txt"],
   },
   projects: {
-    dirs: ["web"],
+    dirs: ["web", "system-programming", "computer-graphics"],
     files: ["help.txt"],
   },
   web: {
     dirs: [],
-    files: ["pawtograph", "webserv", "walidbook", "note-it"],
+    files: ["pawtograph", "walidbook", "note-it"],
+  },
+  "computer-graphics": {
+    dirs: [],
+    files: ["cub3d", "fract-ol"],
+  },
+  "system-programming": {
+    dirs: [],
+    files: ["webserv", "minishell", "philosophers"],
   },
 };
 
 const fileContents = {
-  "help.txt": "This is some help",
+  "help.txt":
+    "Projects are grouped by folders topic, Web, System Programming, or Computer Graphics. cd into the topic that you like to find the actual projects, cat them to get information about each one.",
   "about.txt": {
     education: ["1337 coding school", "ENCG Settat"],
   },
@@ -87,24 +99,42 @@ const fileContents = {
       "MongoDB",
     ],
   },
-};
 
-const skills = [
-  "Next.js",
-  "React.js",
-  "Redux",
-  "TypeScript",
-  "AWS",
-  "Express.js",
-  "MongoDB",
-  "Node.js",
-  "Tailwind CSS",
-  "C",
-  "C++",
-  "Java",
-  "Python",
-  "Git",
-];
+  minishell: {
+    description: "This is an implementation of bash using C",
+    image: "",
+    code: "github.com/qirall79",
+    live: "github.com/qirall79",
+    tech: ["C"],
+  },
+
+  philosophers: {
+    description:
+      "This is a simulation of the Dining Philosophers problem using both posix threads and semaphores in C.",
+    image: "",
+    code: "github.com/qirall79",
+    live: "github.com/qirall79",
+    tech: ["C"],
+  },
+
+  cub3d: {
+    description:
+      "Cub3d is a raycasting engine using C and MinilibX, similar to the Wolfenstein 3D game.",
+    image: "",
+    code: "github.com/qirall79",
+    live: "github.com/qirall79",
+    tech: ["C", "MinilibX"],
+  },
+
+  "fract-ol": {
+    description:
+      "Fract-ol is a generator for fractals such as the Mandelbrot and Julia sets using C and MinilibX.",
+    image: "",
+    code: "github.com/qirall79",
+    live: "github.com/qirall79",
+    tech: ["C", "MinilibX"],
+  },
+};
 
 export const Terminal = () => {
   const [content, setContent] = useState([]);
@@ -142,12 +172,10 @@ export const Terminal = () => {
       if (singleCommand === "cd") {
         if (fileSystem[dir].dirs.includes(args[1]) || args[1] === "..") {
           {
-            if (args[1] !== "..")
-            {
+            if (args[1] !== "..") {
               setDir(args[1]);
               setDirectories([...directories, args[1]]);
-            }
-            else {
+            } else {
               const dirs = [...directories];
               dirs.pop();
               setDir(dirs[dirs.length - 1]);
@@ -157,7 +185,7 @@ export const Terminal = () => {
         } else {
           if (!args[1]) {
             setDir("/");
-            setDirectories(["/"])
+            setDirectories(["/"]);
           } else newContent.push("Directory not found!");
         }
       }
@@ -183,6 +211,8 @@ export const Terminal = () => {
         }
       }
 
+      if (singleCommand == "help") newContent.push("<help>");
+
       addContent(newContent);
     }
   };
@@ -196,7 +226,7 @@ export const Terminal = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setContent([...helpContent]);
+      setContent(["<help>"]);
       setAnimated(true);
     }, 700);
 
@@ -208,6 +238,8 @@ export const Terminal = () => {
       onKeyDown={handleKeys}
       className="w-full max-w-screen flex-grow p-4 flex flex-col"
     >
+      <Header />
+      <br />
       {!cleared && (
         <div>
           <span className="font-bold text-[#9B87F5] pr-3">{"$>"}</span>
@@ -237,6 +269,8 @@ export const Terminal = () => {
             </div>
           );
         }
+
+        if (c === "<help>") return <Help key={i} />;
 
         if (c.includes(" | ")) {
           const list = c.split(" | ");
@@ -326,86 +360,7 @@ export const Terminal = () => {
 
         if (c === "|||") {
           // this is about.txt
-          return (
-            <div className="max-w-[800px] text-left" key={i}>
-              <br />
-              <p>
-                I&apos;m Walid Belfatmi, a self-taught full stack developer. The
-                combination of creativity, problem solving, and permanent
-                learning is what drives my passion for programming in general,
-                and specifically web development.
-              </p>
-
-              <br />
-
-              <p className="font-semibold text-teal-200">Education: </p>
-              <div className="flex justify-between translate-x-4 min-w-[400px] max-w-[600px]">
-                <p>1337 Coding School (Software Development)</p>
-                <p>2023 - 2025</p>
-              </div>
-              <div className="flex justify-between translate-x-4 min-w-[400px] max-w-[600px]">
-                <p>ENCG Settat (Financial Management)</p>
-                <p>2019 - 2023</p>
-              </div>
-
-              <br />
-
-              <p className="font-semibold text-fuchsia-200">Experiences: </p>
-              <div className="flex space-x-8 translate-x-4">
-                <p>Astren Empower (Intern full stack developer)</p>
-                <p>Apr 2023 - Jul 2023</p>
-              </div>
-
-              <br />
-
-              <p className="font-semibold ">Skills: </p>
-              <ul className="flex flex-wrap space-x-4 translate-x-4">
-                {skills.map((s, j) => {
-                  return (
-                    <li
-                      className={`${
-                        j % 2 ? "text-emerald-300" : "text-cyan-300"
-                      }`}
-                      key={j}
-                    >
-                      {s}
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <br />
-
-              <p className="font-semibold text-violet-300">Contact: </p>
-              <ul className="flex flex-wrap space-x-4 translate-x-4 font-semibold">
-                <li className="text-red-300 hover:text-red-200 transition-all">
-                  <Link
-                    href={"mailto:walidbelfatmi.dev@gmail.com"}
-                    target="_blank"
-                  >
-                    Email
-                  </Link>
-                </li>
-                <li className="text-blue-500 hover:text-blue-400 transition-all">
-                  <Link
-                    href={
-                      "https://www.linkedin.com/in/walid-belfatmi-1587751a2/"
-                    }
-                    target="_blank"
-                  >
-                    LinkedIn
-                  </Link>
-                </li>
-                <li className="text-slate-400 hover:text-slate-300 transition-all">
-                  <Link href={"https://github.com/Qirall79"} target="_blank">
-                    Github
-                  </Link>
-                </li>
-              </ul>
-
-              <br />
-            </div>
-          );
+          return <About key={i} />;
         }
 
         return (
