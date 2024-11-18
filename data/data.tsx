@@ -55,7 +55,7 @@ const data = {
     description:
       "Minishell is an implementaiton of bash using C. It involves handling basic shell operations like displaying a prompt, executing commands, managing history, and supporting built-in commands (echo, cd, pwd, etc.). Key features include input/output redirection, piping, handling quotes and special characters, and implementing signal handling (ctrl-C, ctrl-D, ctrl-). The bonus adds support for logical operators (&&, ||) and wildcard expansion (*). The project requires following C norms, managing memory properly, and using a Makefile for compilation.",
     image: "/images/minishell.png",
-    code: "https://github.com/Qirall79/minishell",
+    code: "https://github.com/Qirall79/not-very-mini-shell",
     live: "",
     tech: ["C"],
   },
@@ -64,7 +64,7 @@ const data = {
     description:
       "This is a simulation of the Dining Philosophers problem using both posix threads and semaphores in C.",
     image: "/images/philo.png",
-    code: "https://github.com/Qirall79/philosophers",
+    code: "https://github.com/Qirall79/dining-philos",
     live: "",
     tech: ["C"],
   },
