@@ -150,7 +150,7 @@ export const Terminal = () => {
   return (
     <div
       onKeyDown={handleKeys}
-      className='w-full max-w-screen flex-grow p-4 flex flex-col'
+      className='w-full max-w-screen flex-grow p-8 flex flex-col'
     >
       <br />
       {!cleared && (

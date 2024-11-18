@@ -21,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sourceCodePro.className}  antialiased`}
+        className={`${sourceCodePro.className} bg-[#1A1F2C] w-screen flex flex-col items-center`}
       >
-        {children}
+        <div className="max-w-[1450px] w-full">
+          {children}
+        </div>
       </body>
     </html>
   );
