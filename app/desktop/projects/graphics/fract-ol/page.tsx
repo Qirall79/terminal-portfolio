@@ -1,13 +1,7 @@
 import { Project } from '@/components/Project';
+import projects from '@/data/data';
 
-const details = {
-  description:
-    'Fract-ol is a generator for fractals such as the Mandelbrot and Julia sets using C and MinilibX.',
-  image: '',
-  code: 'github.com/qirall79',
-  live: 'github.com/qirall79',
-  tech: ['C', 'MinilibX'],
-};
+const details = projects['fract-ol'];
 
 export default function Home() {
   return (

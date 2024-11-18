@@ -1,12 +1,7 @@
 import { Project } from '@/components/Project';
+import projects from '@/data/data';
 
-const details = {
-  description: 'This is an implementation of bash using C',
-  image: '',
-  code: 'github.com/qirall79',
-  live: 'github.com/qirall79',
-  tech: ['C'],
-};
+const details = projects.minishell;
 
 export default function Home() {
   return (

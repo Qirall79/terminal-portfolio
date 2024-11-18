@@ -1,13 +1,7 @@
 import { Project } from '@/components/Project';
+import projects from '@/data/data';
 
-const details = {
-  description:
-    'Cub3d is a raycasting engine using C and MinilibX, similar to the Wolfenstein 3D game.',
-  image: '',
-  code: 'github.com/qirall79',
-  live: 'github.com/qirall79',
-  tech: ['C', 'MinilibX'],
-};
+const details = projects.cub3d;
 
 export default function Home() {
   return (

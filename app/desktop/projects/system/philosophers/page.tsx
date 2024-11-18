@@ -1,13 +1,7 @@
 import { Project } from '@/components/Project';
+import projects from '@/data/data';
 
-const details = {
-  description:
-    'This is a simulation of the Dining Philosophers problem using both posix threads and semaphores in C.',
-  image: '',
-  code: 'github.com/qirall79',
-  live: 'github.com/qirall79',
-  tech: ['C'],
-};
+const details = projects.philosophers;
 
 export default function Home() {
   return (
