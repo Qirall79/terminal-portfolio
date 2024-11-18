@@ -6,7 +6,7 @@ import { IoFolder } from 'react-icons/io5';
 
 export const Desktop = () => {
   return (
-    <div className='p-8 flex space-x-12 items-end'>
+    <div className='p-8 flex space-x-12 items-end justify-center md:justify-start'>
       <Link href={'/desktop/projects'} className='flex flex-col space-y-2 items-center hover:text-indigo-400 cursor-pointer transition-all'>
         <IoFolder size={42} />
         <p>projects</p>

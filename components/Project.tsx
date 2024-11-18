@@ -12,7 +12,7 @@ export const Project = ({details}) => {
 		  <div className="flex flex-col items-start md:flex-row space-x-4 md:items-center">
 			<span className="font-bold">technologies used: </span>
 			<ul
-			  className={`flex flex-wrap text-left gap-x-4 font-semibold md:text-lg`}
+			  className={`flex flex-wrap text-left gap-x-4 font-semibold md:text-base`}
 			>
 			  {details.tech.map((t, i) => {
 				return (
@@ -34,8 +34,8 @@ export const Project = ({details}) => {
 			  <br />
 			  <Image
 				className="rounded-md"
-				width={400}
-				height={400}
+				width={450}
+				height={450}
 				src={details.image}
 				alt={"project details"}
 			  />

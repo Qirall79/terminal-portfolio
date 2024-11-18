@@ -3,7 +3,7 @@ import { IoFolder } from 'react-icons/io5';
 
 export default function Home() {
   return (
-    <div className='p-8 flex space-x-12 items-start'>
+    <div className='p-8 flex space-x-12 items-start justify-center md:justify-start'>
       <Link href={'/desktop/projects/web'} className='flex flex-col space-y-2 items-center hover:text-indigo-400 cursor-pointer transition-all'>
         <IoFolder size={42} />
         <p>web</p>

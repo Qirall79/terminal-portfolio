@@ -11,7 +11,7 @@ export const Header = ({
   
 
   return (
-    <div className='p-4 flex flex-col space-y-2 md:space-y-0 md:flex-row justify-between items-center'>
+    <div className='p-4 flex flex-col space-y-2 md:space-y-0 md:flex-row justify-between items-center mb-12 md:mb-0'>
       <pre className="text-[10px] md:text-base">
         <p>
           {
