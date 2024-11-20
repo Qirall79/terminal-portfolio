@@ -12,10 +12,6 @@ export default function Home() {
         <LuFileDigit size={36} />
         <p>minishell</p>
       </Link>
-      <Link href={'/desktop/projects/system/philosophers'} className='flex flex-col space-y-2 items-center hover:text-indigo-400 cursor-pointer transition-all'>
-        <LuFileDigit size={36} />
-        <p>philosophers</p>
-      </Link>
     </div>
   );
 }
