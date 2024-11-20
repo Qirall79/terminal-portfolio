@@ -77,6 +77,12 @@ export const Prompt = ({ handleCommand, dir }: { handleCommand: any, dir: string
       textareaRef.current.focus();
     }
   }, [visible]);
+  
+  useLayoutEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.scrollIntoView()
+    }
+  }, []);
 
   return (
     <div

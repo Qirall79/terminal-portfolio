@@ -60,15 +60,6 @@ const data = {
     tech: ["C"],
   },
 
-  philosophers: {
-    description:
-      "This is a simulation of the Dining Philosophers problem using both posix threads and semaphores in C.",
-    image: "/images/philo.png",
-    code: "https://github.com/Qirall79/dining-philos",
-    live: "",
-    tech: ["C"],
-  },
-
   cub3d: {
     description:
       "Cub3d is a raycasting engine using C and MinilibX, similar to the Wolfenstein 3D game.",

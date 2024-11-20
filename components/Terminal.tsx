@@ -21,7 +21,6 @@ const projects = [
   'walidbook',
   'note-it',
   'minishell',
-  'philosophers',
   'cub3d',
   'fract-ol',
 ];
@@ -45,7 +44,7 @@ export const fileSystem = {
   },
   'system-programming': {
     dirs: [],
-    files: ['webserv', 'minishell', 'philosophers'],
+    files: ['webserv', 'minishell'],
   },
 };
 
