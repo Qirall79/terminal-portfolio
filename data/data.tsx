@@ -112,7 +112,7 @@ const data = {
   'java-modules': {
     description:
       'A set of small projects in java covering basic to advanced concepts such as IO manipulation, ORMs, reflection, testing, sockets, and the Spring framework.',
-    image: '',
+    image: '/images/java.png',
     code: 'https://github.com/Qirall79/java-modules',
     live: '',
     tech: ['java'],
