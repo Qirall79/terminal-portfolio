@@ -8,7 +8,7 @@ const data = {
     description:
       'Transcendence is an online web-based Ping-Pong game, with chat functionality, friendships, live notification and more.',
     image: '/images/transcendence.png',
-    code: 'https://github.com/Qirall79/ft_transcendence',
+    code: 'https://github.com/Qirall79/transcendence',
     live: 'https://ftranscendence.ddns.net:8080/',
     tech: [
       'Django',
