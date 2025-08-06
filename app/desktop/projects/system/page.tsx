@@ -8,6 +8,10 @@ export default function Home() {
         <LuFileDigit size={36} />
         <p>reDIYs</p>
       </Link>
+      <Link href={'/desktop/projects/system/sqlVeryLite'} className='flex flex-col space-y-2 items-center hover:text-indigo-400 cursor-pointer transition-all'>
+        <LuFileDigit size={36} />
+        <p>sqlVeryLite</p>
+      </Link>
       <Link href={'/desktop/projects/system/webserv'} className='flex flex-col space-y-2 items-center hover:text-indigo-400 cursor-pointer transition-all'>
         <LuFileDigit size={36} />
         <p>webserv</p>

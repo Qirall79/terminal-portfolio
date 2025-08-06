@@ -18,6 +18,11 @@ export default function Home() {
         <IoFolder size={42} />
         <p>computer <br /> graphics</p>
       </Link>
+      
+      <Link href={'/desktop/projects/miscellaneous'} className='flex flex-col space-y-2 items-center text-center hover:text-indigo-400 cursor-pointer transition-all'>
+        <IoFolder size={42} />
+        <p>miscellaneous</p>
+      </Link>
     </div>
   );
 }

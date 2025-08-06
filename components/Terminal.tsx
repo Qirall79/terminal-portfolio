@@ -17,6 +17,7 @@ const commands = ['ls', 'cd', 'cat', 'clear', 'help'];
 
 const projects = [
   'reDIYs',
+  'sqlVeryLite',
   'webserv',
   'pawtograph',
   'transcendence',
@@ -25,6 +26,7 @@ const projects = [
   'minishell',
   'cub3d',
   'fract-ol',
+  'java-modules',
 ];
 
 export const fileSystem = {
@@ -33,7 +35,7 @@ export const fileSystem = {
     files: ['about.txt'],
   },
   projects: {
-    dirs: ['web', 'system-programming', 'computer-graphics'],
+    dirs: ['web', 'system-programming', 'computer-graphics', 'miscellaneous'],
     files: ['help.txt'],
   },
   web: {
@@ -46,7 +48,11 @@ export const fileSystem = {
   },
   'system-programming': {
     dirs: [],
-    files: ['reDIYs', 'webserv', 'minishell'],
+    files: ['reDIYs', 'sqlVeryLite', 'webserv', 'minishell'],
+  },
+  'miscellaneous': {
+    dirs: [],
+    files: ['java-modules'],
   },
 };
 

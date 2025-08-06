@@ -58,6 +58,14 @@ const data = {
     live: '',
     tech: ['c++'],
   },
+  sqlVeryLite: {
+    description:
+      'A minimal SQLite database implementation built from scratch. This project demonstrates database internals, file format parsing, and query processing by creating a working SQLite clone that can read and query real SQLite database files.',
+    image: '/images/sqlite.png',
+    code: 'https://github.com/Qirall79/sqlVeryLite',
+    live: '',
+    tech: ['c++'],
+  },
   'note-it': {
     description:
       "This is a note taking web app that is similar to Google Keep. You want to remember something important by fear to forgetting it ? I got your back, u simply create an account and start creating. Whenever u comeback, your notes are still there ! You can create, delete and edit your notes. Notes must be associated to a project. You can create a project on the sidebar, and u can delete it when you're done with it.",
@@ -99,6 +107,15 @@ const data = {
     code: 'https://github.com/Qirall79/fract-ol',
     live: '',
     tech: ['C', 'MinilibX'],
+  },
+  
+  'java-modules': {
+    description:
+      'A set of small projects in java covering basic to advanced concepts such as IO manipulation, ORMs, reflection, testing, sockets, and the Spring framework.',
+    image: '',
+    code: 'https://github.com/Qirall79/java-modules',
+    live: '',
+    tech: ['java'],
   },
 };
 
